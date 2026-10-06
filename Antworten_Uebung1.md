@@ -34,4 +34,4 @@ Die Methode `display()` hat den Rückgabetyp `void` und gibt ihr Ergebnis nur ü
 Siehe `Testfaelle_Uebung1.xlsx` bzw. `Testfaelle_Uebung1.pdf` sowie die Testklasse `test/se1/ws26/tests/uebung1/GermanTranslatorTest.java` (17 Testmethoden mit 21 Testfällen).
 
 ## Sonstige Dateien
-Alle weiteren geforderten Dateien befinden sich in `Übungsblätter/Uebung 1`
+Alle weiteren geforderten Dateien befinden sich in `Uebungsblaetter/Uebung 1`
