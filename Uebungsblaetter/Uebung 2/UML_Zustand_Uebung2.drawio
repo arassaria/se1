@@ -1,0 +1,87 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Seite-1" id="_HzYQ_LZs9kLj-dSxIFd">
+    <mxGraphModel dx="1414" dy="783" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="XD98mIhM39gzO2nsLTf--15" edge="1" parent="1" source="XD98mIhM39gzO2nsLTf--8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" target="XD98mIhM39gzO2nsLTf--13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XD98mIhM39gzO2nsLTf--8" parent="1" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;whiteSpace=wrap;" value="0 Member" vertex="1">
+          <mxGeometry height="40" width="140" x="160" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="XD98mIhM39gzO2nsLTf--10" edge="1" parent="1" source="XD98mIhM39gzO2nsLTf--9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="XD98mIhM39gzO2nsLTf--8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XD98mIhM39gzO2nsLTf--9" parent="1" style="ellipse;fillColor=strokeColor;html=1;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="60" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XD98mIhM39gzO2nsLTf--11" edge="1" parent="1" source="XD98mIhM39gzO2nsLTf--8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;innerLoopWaypoints=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" target="XD98mIhM39gzO2nsLTf--8">
+          <mxGeometry relative="1" x="0.3306" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="75" />
+              <mxPoint x="360" y="10" />
+              <mxPoint x="265" y="10" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XD98mIhM39gzO2nsLTf--12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="deleteMember(id) [ID unbekannt] / Fehlermeldung&lt;div&gt;addMember(null) / IllegalArgumentException&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="300" x="350" y="25" as="geometry" />
+        </mxCell>
+        <mxCell id="XD98mIhM39gzO2nsLTf--16" edge="1" parent="1" source="XD98mIhM39gzO2nsLTf--13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" target="XD98mIhM39gzO2nsLTf--14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XD98mIhM39gzO2nsLTf--18" edge="1" parent="1" source="XD98mIhM39gzO2nsLTf--13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" target="XD98mIhM39gzO2nsLTf--8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XD98mIhM39gzO2nsLTf--13" parent="1" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;whiteSpace=wrap;" value="1 Member" vertex="1">
+          <mxGeometry height="40" width="140" x="160" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="XD98mIhM39gzO2nsLTf--17" edge="1" parent="1" source="XD98mIhM39gzO2nsLTf--14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" target="XD98mIhM39gzO2nsLTf--13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XD98mIhM39gzO2nsLTf--14" parent="1" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;whiteSpace=wrap;" value="2 Member" vertex="1">
+          <mxGeometry height="40" width="140" x="160" y="305" as="geometry" />
+        </mxCell>
+        <mxCell id="XD98mIhM39gzO2nsLTf--23" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="deleteMember(id) [ID unbekannt] / Fehlermeldung&lt;div&gt;addMember(null) / IllegalArgumentException&lt;/div&gt;&lt;div&gt;addMember(m) [ID vorhanden] / ContainerException&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="320" x="320" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="XD98mIhM39gzO2nsLTf--24" edge="1" parent="1" source="XD98mIhM39gzO2nsLTf--13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;innerLoopWaypoints=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" target="XD98mIhM39gzO2nsLTf--13">
+          <mxGeometry relative="1" x="-0.2" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="240" />
+              <mxPoint x="340" y="240" />
+              <mxPoint x="340" y="160" />
+              <mxPoint x="300" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XD98mIhM39gzO2nsLTf--25" edge="1" parent="1" source="XD98mIhM39gzO2nsLTf--14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;innerLoopWaypoints=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" target="XD98mIhM39gzO2nsLTf--14">
+          <mxGeometry relative="1" x="-0.3" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="360" />
+              <mxPoint x="340" y="360" />
+              <mxPoint x="340" y="280" />
+              <mxPoint x="300" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XD98mIhM39gzO2nsLTf--27" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="addMember(m) [ID neu]" vertex="1">
+          <mxGeometry height="30" width="150" x="40" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="XD98mIhM39gzO2nsLTf--29" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="deleteMember(id) [ID vorhanden]" vertex="1">
+          <mxGeometry height="30" width="233" x="240" y="248" as="geometry" />
+        </mxCell>
+        <mxCell id="XD98mIhM39gzO2nsLTf--33" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="addMember(m) [ID neu]" vertex="1">
+          <mxGeometry height="30" width="150" x="40" y="248" as="geometry" />
+        </mxCell>
+        <mxCell id="XD98mIhM39gzO2nsLTf--34" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="deleteMember(id) [ID vorhanden]" vertex="1">
+          <mxGeometry height="30" width="233" x="257" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="XD98mIhM39gzO2nsLTf--36" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="deleteMember(id) [ID unbekannt] / Fehlermeldung&lt;div&gt;addMember(null) / IllegalArgumentException&lt;/div&gt;&lt;div&gt;addMember(m) [ID vorhanden] / ContainerException&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="320" x="320" y="265" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
