@@ -1,6 +1,6 @@
 package org.hbrs.se1.ws26.exercises.uebung3;
 
-public interface Member {
+public interface Member extends java.io.Serializable{
 
     /**
      * Die ID ist über einen Konstruktor einer Klasse, welches dieses Interface implementiert,

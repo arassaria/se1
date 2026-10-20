@@ -44,14 +44,16 @@ public class Container {
         return "Kein Member mit der ID " + id + " wurde in den Einträgen gefunden.";
     }
 
+    public void deleteAllMembers() {
+        members.clear();
+    }
+
     public int size() {
         return members.size();
     }
 
-    public void dump() {
-        for (Member m : members) {
-            System.out.println(m);
-        }
+    public List<Member> getCurrentList() {
+        return new ArrayList<>(members);
     }
 
     public void store() throws PersistenceException {
@@ -60,6 +62,21 @@ public class Container {
         }
         try {
             persistenceStrategy.save(members);
+        } catch (UnsupportedOperationException e) {
+            throw new PersistenceException(PersistenceException.ExceptionType.ImplementationNotAvailable, "Die gesetzte Persistenz-Strategie ist nicht implementiert!");
+        }
+    }
+
+    public void load() throws PersistenceException {
+        if (persistenceStrategy == null) {
+            throw new PersistenceException(PersistenceException.ExceptionType.NoStrategyIsSet, "Keine Persistenz-Strategie gesetzt!");
+        }
+        try {
+            List<Member> loadedList = persistenceStrategy.load();
+            members.clear();
+            if (loadedList != null) {
+                members.addAll(loadedList);
+            }
         } catch (UnsupportedOperationException e) {
             throw new PersistenceException(PersistenceException.ExceptionType.ImplementationNotAvailable, "Die gesetzte Persistenz-Strategie ist nicht implementiert!");
         }

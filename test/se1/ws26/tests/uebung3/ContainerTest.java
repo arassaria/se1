@@ -1,62 +1,80 @@
 package se1.ws26.tests.uebung3;
 
 
+import org.hbrs.se1.ws26.exercises.uebung3.*;
+import org.hbrs.se1.ws26.exercises.uebung3.persistence.PersistenceException;
+import org.hbrs.se1.ws26.exercises.uebung3.persistence.PersistenceStrategyMongoDB;
+import org.hbrs.se1.ws26.exercises.uebung3.persistence.PersistenceStrategyStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 class ContainerTest {
+
+    private Container container;
 
     @BeforeEach
     void setUp() {
-        // Hier muss der Container einmalig als Singleton instanziiert werden.
+        container = Container.getInstance();
+        container.deleteAllMembers();
+        container.setPersistenceStrategy(null);
     }
 
     @Test
     void testMongoDBNotImplementedSolution() {
-        // Set a strategy, which has not been implemented
-        // container.setPersistenceStrategie( new PersistenceStrategyMongoDB<Member>() );
+        container.setPersistenceStrategy(new PersistenceStrategyMongoDB<>());
 
-        // Testing store
-        // Hinweis: Beim Aufruf der Methoden store() oder load() muss eine Exception vom Typ
-        // PersistenceException zurückgegeben werden. Der ExceptionType lautet ImplementationNotAvailable
-        // Die Message (abrufbar mit der Methode e.getMessage() ) muss einen eindeutigen Text haben, z.B.:
-        // assertEquals( e.getMessage() , "MongoDB is not implemented!"  );
+        PersistenceException e1 = assertThrows(PersistenceException.class, () -> container.store());
+        assertEquals(PersistenceException.ExceptionType.ImplementationNotAvailable, e1.getExceptionTypeType());
+        assertEquals("Die gesetzte Persistenz-Strategie ist nicht implementiert!", e1.getMessage());
+
+        PersistenceException e2 = assertThrows(PersistenceException.class, () -> container.load());
+        assertEquals(PersistenceException.ExceptionType.ImplementationNotAvailable, e2.getExceptionTypeType());
+        assertEquals("Die gesetzte Persistenz-Strategie ist nicht implementiert!", e2.getMessage());
     }
 
     @Test
     void testNoStrategeySet() {
-        //
-            // container.setPersistenceStrategie(null);
-            // container.store();
-        // } catch (PersistenceException e) {
-            // Bitte auch hier die Message und den ExceptionType prüfen.
-        // }
+        PersistenceException e = assertThrows(PersistenceException.class, () -> container.store());
+        assertEquals(PersistenceException.ExceptionType.NoStrategyIsSet, e.getExceptionTypeType());
+        assertEquals("Keine Persistenz-Strategie gesetzt!", e.getMessage());
     }
 
     @Test
     void testWrongLocationOfFile() {
-        // try {
-           //  PersistenceStrategyStream<Member> strat = new PersistenceStrategyStream<Member>();
-            // FileStreams do not like directories, so try this out ;-)
-            // strat.setLocation("/Users/saschaalda/tmp");
-            // container.setPersistenceStrategie( strat );
-            // container.store();
+        PersistenceStrategyStream<Member> strat = new PersistenceStrategyStream<Member>();
+        strat.setLocation(".");
+        container.setPersistenceStrategy(strat);
 
-        // } catch (PersistenceException e) {
-            // Auch hier diverse Assertions bringen, um die Nachricht und den ExceptionType zu testen.
-        // }
+        PersistenceException e1 = assertThrows(PersistenceException.class, () -> container.store());
+        assertEquals(PersistenceException.ExceptionType.ConnectionNotAvailable, e1.getExceptionTypeType());
+        assertTrue(e1.getMessage().startsWith("Fehler beim Speichern: "));
+
+        PersistenceException e2 = assertThrows(PersistenceException.class, () -> container.load());
+        assertEquals(PersistenceException.ExceptionType.ConnectionNotAvailable, e2.getExceptionTypeType());
+        assertTrue(e2.getMessage().startsWith("Fehler beim Laden: "));
     }
 
     @Test
-    void testStoreDeleteAndLoad() {
-        // Testen Sie folgenden RoundTrip:
-        // 1. Lösche alle Member-Objekte (Sicher ist sicher! Dazu die Methode deleteAllMember implementieren!)
-        // 2. Setzen der Strategie
-        // 3. Hinzufügen eines Member-Objekts
-        // 4. Abspeichern
-        // 5. Löschen des Member-Objekts
-        // 6. Laden
-        // Die Zustandsänderungen mittels der size() bitte stets testen!
+    void testStoreDeleteAndLoad() throws ContainerException, PersistenceException {
+        assertEquals(0, container.size());
+
+        container.setPersistenceStrategy(new PersistenceStrategyStream<Member>());
+        container.addMember(new ConcreteMember(1));
+        assertEquals(1, container.size());
+
+        container.store();
+        assertEquals(1, container.size());
+
+        container.deleteMember(1);
+        assertEquals(0, container.size());
+
+        container.load();
+        assertEquals(1, container.size());
+
+        assertEquals(1, container.getCurrentList().get(0).getID());
+
     }
 
 }

@@ -1,5 +1,6 @@
 package org.hbrs.se1.ws26.exercises.uebung3.persistence;
 import java.util.List;
+import java.io.*;
 
 public class PersistenceStrategyStream<E> implements PersistenceStrategy<E> {
 
@@ -20,7 +21,11 @@ public class PersistenceStrategyStream<E> implements PersistenceStrategy<E> {
      * (Last Access: Oct, 12th 2026)
      */
     public void save(List<E> member) throws PersistenceException  {
-
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(location))) {
+            oos.writeObject(member);
+        } catch (IOException e) {
+            throw new PersistenceException(PersistenceException.ExceptionType.ConnectionNotAvailable, "Fehler beim Speichern: " + e.getMessage());
+        }
     }
 
     @Override
@@ -50,6 +55,16 @@ public class PersistenceStrategyStream<E> implements PersistenceStrategy<E> {
         // return newListe
 
         // and finally close the streams
-        return null;
+
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(location))) {
+            Object obj = ois.readObject();
+            if (obj instanceof List) {
+                return (List<E>) obj;
+            } else {
+                return null;
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            throw new PersistenceException(PersistenceException.ExceptionType.ConnectionNotAvailable, "Fehler beim Laden: " + e.getMessage());
+        }
     }
 }
