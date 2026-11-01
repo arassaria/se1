@@ -1,4 +1,4 @@
-```mermaid:
+```mermaid
 mindmap
     root((TeamMatchAI@HBRS))
         Profil
